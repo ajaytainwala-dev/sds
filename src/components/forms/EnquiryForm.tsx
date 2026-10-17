@@ -106,7 +106,7 @@ export function EnquiryForm({ initialCourse }: EnquiryFormProps) {
   };
 
   return (
-    <div className="bg-white rounded-3xl p-6 sm:p-10 border border-[#E4E4E7] shadow-xl">
+    <div className="bg-white rounded-2xl sm:rounded-3xl p-4 sm:p-8 md:p-10 border border-[#E4E4E7] shadow-lg sm:shadow-xl">
       {submissionSuccess ? (
         <div className="text-center py-6 animate-fade-in">
           <div className="h-16 w-16 bg-[#FEF9C3] text-[#854D0E] rounded-full flex items-center justify-center mx-auto mb-5 shadow-inner">
@@ -212,7 +212,7 @@ export function EnquiryForm({ initialCourse }: EnquiryFormProps) {
                 placeholder="e.g. Rahul Sharma"
                 disabled={submitting}
                 {...register("fullName")}
-                className={`w-full pl-10 pr-4 py-3 rounded-xl border text-sm text-[#18181B] placeholder-[#A1A1AA] bg-[#FAFAF7] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#EAB308] transition-all ${
+                className={`w-full pl-10 pr-4 py-3 rounded-xl border text-base sm:text-sm text-[#18181B] placeholder-[#A1A1AA] bg-[#FAFAF7] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#EAB308] transition-all ${
                   errors.fullName ? "border-red-500 bg-red-50/20" : "border-[#E4E4E7]"
                 }`}
               />
@@ -242,7 +242,7 @@ export function EnquiryForm({ initialCourse }: EnquiryFormProps) {
                 placeholder="98450 12345"
                 disabled={submitting}
                 {...register("phone")}
-                className={`w-full px-3.5 py-3 text-sm text-[#18181B] placeholder-[#A1A1AA] bg-transparent focus:outline-none ${
+                className={`w-full px-3.5 py-3 text-base sm:text-sm text-[#18181B] placeholder-[#A1A1AA] bg-transparent focus:outline-none ${
                   errors.phone ? "border-red-500" : ""
                 }`}
               />
@@ -270,7 +270,7 @@ export function EnquiryForm({ initialCourse }: EnquiryFormProps) {
               id="service"
               disabled={submitting}
               {...register("service")}
-              className="w-full px-3.5 py-3 rounded-xl border border-[#E4E4E7] text-sm text-[#18181B] bg-[#FAFAF7] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#EAB308] transition-all"
+              className="w-full px-3.5 py-3 rounded-xl border border-[#E4E4E7] text-base sm:text-sm text-[#18181B] bg-[#FAFAF7] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#EAB308] transition-all"
             >
               {SITE_CONFIG.courses.map((c) => (
                 <option key={c.id} value={c.title}>
@@ -304,7 +304,7 @@ export function EnquiryForm({ initialCourse }: EnquiryFormProps) {
                   id="preferredTime"
                   disabled={submitting}
                   {...register("preferredTime")}
-                  className="w-full px-3.5 py-3 rounded-xl border border-[#E4E4E7] text-xs sm:text-sm text-[#18181B] bg-[#FAFAF7] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#EAB308] transition-all"
+                  className="w-full px-3.5 py-3 rounded-xl border border-[#E4E4E7] text-base sm:text-sm text-[#18181B] bg-[#FAFAF7] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#EAB308] transition-all"
                 >
                   <option value="morning">Morning (6:00 AM – 10:00 AM)</option>
                   <option value="afternoon">Afternoon (11:00 AM – 3:30 PM)</option>
@@ -318,33 +318,33 @@ export function EnquiryForm({ initialCourse }: EnquiryFormProps) {
               <label className="block text-xs font-bold uppercase tracking-wider text-[#18181B] mb-2">
                 Preferred Reply Via <span className="text-red-500">*</span>
               </label>
-              <div className="grid grid-cols-3 gap-2">
-                <label className="cursor-pointer text-center p-2 rounded-xl border border-[#E4E4E7] has-checked:border-[#EAB308] has-checked:bg-[#FEF9C3] transition-colors">
+              <div className="grid grid-cols-3 gap-1.5 sm:gap-2">
+                <label className="cursor-pointer text-center py-2.5 px-1 sm:p-2 rounded-xl border border-[#E4E4E7] has-checked:border-[#EAB308] has-checked:bg-[#FEF9C3] transition-colors">
                   <input
                     type="radio"
                     value="whatsapp"
                     {...register("preferredContact")}
                     className="sr-only"
                   />
-                  <span className="text-xs font-semibold text-[#18181B] block">WhatsApp</span>
+                  <span className="text-[11px] sm:text-xs font-semibold text-[#18181B] block">WhatsApp</span>
                 </label>
-                <label className="cursor-pointer text-center p-2 rounded-xl border border-[#E4E4E7] has-checked:border-[#EAB308] has-checked:bg-[#FEF9C3] transition-colors">
+                <label className="cursor-pointer text-center py-2.5 px-1 sm:p-2 rounded-xl border border-[#E4E4E7] has-checked:border-[#EAB308] has-checked:bg-[#FEF9C3] transition-colors">
                   <input
                     type="radio"
                     value="phone"
                     {...register("preferredContact")}
                     className="sr-only"
                   />
-                  <span className="text-xs font-semibold text-[#18181B] block">Phone Call</span>
+                  <span className="text-[11px] sm:text-xs font-semibold text-[#18181B] block">Call</span>
                 </label>
-                <label className="cursor-pointer text-center p-2 rounded-xl border border-[#E4E4E7] has-checked:border-[#EAB308] has-checked:bg-[#FEF9C3] transition-colors">
+                <label className="cursor-pointer text-center py-2.5 px-1 sm:p-2 rounded-xl border border-[#E4E4E7] has-checked:border-[#EAB308] has-checked:bg-[#FEF9C3] transition-colors">
                   <input
                     type="radio"
                     value="email"
                     {...register("preferredContact")}
                     className="sr-only"
                   />
-                  <span className="text-xs font-semibold text-[#18181B] block">Email</span>
+                  <span className="text-[11px] sm:text-xs font-semibold text-[#18181B] block">Email</span>
                 </label>
               </div>
             </div>
@@ -364,7 +364,7 @@ export function EnquiryForm({ initialCourse }: EnquiryFormProps) {
               placeholder="e.g. I already have a learner's licence and want weekend morning slots only."
               disabled={submitting}
               {...register("message")}
-              className="w-full px-3.5 py-2.5 rounded-xl border border-[#E4E4E7] text-sm text-[#18181B] placeholder-[#A1A1AA] bg-[#FAFAF7] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#EAB308] transition-all resize-none"
+              className="w-full px-3.5 py-2.5 rounded-xl border border-[#E4E4E7] text-base sm:text-sm text-[#18181B] placeholder-[#A1A1AA] bg-[#FAFAF7] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#EAB308] transition-all resize-none"
             />
           </div>
 

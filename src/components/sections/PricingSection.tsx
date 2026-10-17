@@ -31,8 +31,8 @@ export function PricingSection() {
         {/* Packages Comparison Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch">
           {/* Package 1: 4-Wheeler Car Full Course */}
-          <div className="relative flex flex-col justify-between rounded-3xl bg-[#FAFAF7] border-2 border-[#EAB308] p-7 shadow-md">
-            <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-[#18181B] text-[#FACC15] text-xs font-bold px-4 py-1 rounded-full uppercase tracking-wider shadow-sm">
+          <div className="relative flex flex-col justify-between rounded-3xl bg-[#FAFAF7] border-2 border-[#EAB308] p-5 sm:p-7 shadow-md">
+            <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-[#18181B] text-[#FACC15] text-[11px] sm:text-xs font-bold px-3.5 py-1 rounded-full uppercase tracking-wider shadow-sm whitespace-nowrap">
               Most Selected
             </div>
 
@@ -40,7 +40,7 @@ export function PricingSection() {
               <div className="text-xs font-bold uppercase tracking-wider text-[#CA8A04] mb-2">
                 Beginner Car Training
               </div>
-              <h3 className="text-2xl font-black text-[#18181B] mb-2">
+              <h3 className="text-xl sm:text-2xl font-black text-[#18181B] mb-2">
                 Complete 4-Wheeler Program
               </h3>
               <p className="text-sm text-[#52525B] mb-6">
@@ -48,9 +48,9 @@ export function PricingSection() {
               </p>
 
               {/* Price Display */}
-              <div className="p-4 rounded-2xl bg-white border border-[#E4E4E7] mb-6">
+              <div className="p-3.5 sm:p-4 rounded-2xl bg-white border border-[#E4E4E7] mb-6">
                 <div className="text-xs text-[#71717A] font-semibold uppercase">Fee Structure</div>
-                <div className="text-xl font-extrabold text-[#18181B] mt-1">
+                <div className="text-lg sm:text-xl font-extrabold text-[#18181B] mt-1">
                   Enquire for Current Batch Fee
                 </div>
                 <div className="text-xs text-[#854D0E] font-medium mt-1">
@@ -114,21 +114,21 @@ export function PricingSection() {
           </div>
 
           {/* Package 2: Refresher / Confidence Course */}
-          <div className="flex flex-col justify-between rounded-3xl bg-white border border-[#E4E4E7] p-7 shadow-xs hover:border-[#D4D4D8] transition-all">
+          <div className="flex flex-col justify-between rounded-3xl bg-white border border-[#E4E4E7] p-5 sm:p-7 shadow-xs hover:border-[#D4D4D8] transition-all">
             <div>
               <div className="text-xs font-bold uppercase tracking-wider text-[#71717A] mb-2">
                 Existing Licence Holders
               </div>
-              <h3 className="text-2xl font-black text-[#18181B] mb-2">
+              <h3 className="text-xl sm:text-2xl font-black text-[#18181B] mb-2">
                 Confidence & Refresher
               </h3>
               <p className="text-sm text-[#52525B] mb-6">
                 Overcome traffic anxiety, master tight Bengaluru streets, and gain confidence behind the wheel.
               </p>
 
-              <div className="p-4 rounded-2xl bg-[#FAFAF7] border border-[#E4E4E7] mb-6">
+              <div className="p-3.5 sm:p-4 rounded-2xl bg-[#FAFAF7] border border-[#E4E4E7] mb-6">
                 <div className="text-xs text-[#71717A] font-semibold uppercase">Fee Structure</div>
-                <div className="text-xl font-extrabold text-[#18181B] mt-1">
+                <div className="text-lg sm:text-xl font-extrabold text-[#18181B] mt-1">
                   Enquire for Refresher Fee
                 </div>
                 <div className="text-xs text-[#71717A] font-medium mt-1">
@@ -191,21 +191,21 @@ export function PricingSection() {
           </div>
 
           {/* Package 3: Two-Wheeler / Scooter */}
-          <div className="flex flex-col justify-between rounded-3xl bg-white border border-[#E4E4E7] p-7 shadow-xs hover:border-[#D4D4D8] transition-all">
+          <div className="flex flex-col justify-between rounded-3xl bg-white border border-[#E4E4E7] p-5 sm:p-7 shadow-xs hover:border-[#D4D4D8] transition-all">
             <div>
               <div className="text-xs font-bold uppercase tracking-wider text-[#71717A] mb-2">
                 2-Wheeler Training
               </div>
-              <h3 className="text-2xl font-black text-[#18181B] mb-2">
+              <h3 className="text-xl sm:text-2xl font-black text-[#18181B] mb-2">
                 Scooter & Motorcycle
               </h3>
               <p className="text-sm text-[#52525B] mb-6">
                 Master low-speed balance, progressive braking, and city road craft on geared bikes or gearless scooters.
               </p>
 
-              <div className="p-4 rounded-2xl bg-[#FAFAF7] border border-[#E4E4E7] mb-6">
+              <div className="p-3.5 sm:p-4 rounded-2xl bg-[#FAFAF7] border border-[#E4E4E7] mb-6">
                 <div className="text-xs text-[#71717A] font-semibold uppercase">Fee Structure</div>
-                <div className="text-xl font-extrabold text-[#18181B] mt-1">
+                <div className="text-lg sm:text-xl font-extrabold text-[#18181B] mt-1">
                   Enquire for 2-Wheeler Fee
                 </div>
                 <div className="text-xs text-[#71717A] font-medium mt-1">

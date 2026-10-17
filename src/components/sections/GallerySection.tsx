@@ -120,15 +120,15 @@ export function GallerySection() {
           aria-modal="true"
           aria-label={activeItem.title}
           onClick={handleClose}
-          className="fixed inset-0 z-50 bg-black/90 backdrop-blur-sm flex items-center justify-center p-4 sm:p-6"
+          className="fixed inset-0 z-50 bg-black/95 backdrop-blur-sm flex items-center justify-center p-2 sm:p-6"
         >
-          {/* Close button */}
+          {/* Close button with high z-index and tap area */}
           <button
             onClick={handleClose}
             aria-label="Close image lightbox"
-            className="absolute top-4 right-4 z-60 p-2 rounded-full bg-white/10 hover:bg-white/20 text-white transition-colors"
+            className="absolute top-3 right-3 sm:top-5 sm:right-5 z-60 p-2.5 rounded-full bg-white/20 hover:bg-white/30 text-white transition-colors"
           >
-            <X className="h-6 w-6" />
+            <X className="h-5 w-5 sm:h-6 sm:w-6" />
           </button>
 
           {/* Prev button */}
@@ -138,9 +138,9 @@ export function GallerySection() {
               handlePrev();
             }}
             aria-label="Previous image"
-            className="absolute left-4 top-1/2 -translate-y-1/2 z-60 p-3 rounded-full bg-white/10 hover:bg-white/20 text-white transition-colors"
+            className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 z-60 p-2.5 sm:p-3 rounded-full bg-white/20 hover:bg-white/30 text-white transition-colors"
           >
-            <ChevronLeft className="h-6 w-6" />
+            <ChevronLeft className="h-5 w-5 sm:h-6 sm:w-6" />
           </button>
 
           {/* Next button */}
@@ -150,17 +150,17 @@ export function GallerySection() {
               handleNext();
             }}
             aria-label="Next image"
-            className="absolute right-4 top-1/2 -translate-y-1/2 z-60 p-3 rounded-full bg-white/10 hover:bg-white/20 text-white transition-colors"
+            className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 z-60 p-2.5 sm:p-3 rounded-full bg-white/20 hover:bg-white/30 text-white transition-colors"
           >
-            <ChevronRight className="h-6 w-6" />
+            <ChevronRight className="h-5 w-5 sm:h-6 sm:w-6" />
           </button>
 
           {/* Modal content container */}
           <div
             onClick={(e) => e.stopPropagation()}
-            className="relative max-w-4xl w-full max-h-[85vh] flex flex-col rounded-2xl overflow-hidden bg-[#18181B] text-white shadow-2xl"
+            className="relative max-w-4xl w-full max-h-[90vh] flex flex-col rounded-2xl overflow-hidden bg-[#18181B] text-white shadow-2xl border border-zinc-800"
           >
-            <div className="relative w-full h-[60vh] bg-black">
+            <div className="relative w-full h-[50vh] sm:h-[60vh] bg-black">
               <Image
                 src={activeItem.imageUrl}
                 alt={activeItem.title}
@@ -174,10 +174,10 @@ export function GallerySection() {
                 <span className="text-xs font-semibold text-[#FACC15] uppercase tracking-wide">
                   {activeItem.category}
                 </span>
-                <h4 className="text-lg font-bold text-white">{activeItem.title}</h4>
+                <h4 className="text-base sm:text-lg font-bold text-white">{activeItem.title}</h4>
                 <p className="text-xs text-[#A1A1AA] mt-0.5">{activeItem.caption}</p>
               </div>
-              <div className="text-xs text-[#71717A] shrink-0">
+              <div className="text-xs text-[#71717A] shrink-0 font-medium">
                 {selectedImageIndex! + 1} of {SITE_CONFIG.gallery.length}
               </div>
             </div>

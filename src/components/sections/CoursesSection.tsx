@@ -40,7 +40,7 @@ export function CoursesSection({ onSelectCourse }: CoursesSectionProps) {
           {SITE_CONFIG.courses.map((course) => (
             <div
               key={course.id}
-              className={`relative flex flex-col justify-between rounded-3xl bg-white border transition-all duration-300 p-6 sm:p-8 ${
+              className={`relative flex flex-col justify-between rounded-3xl bg-white border transition-all duration-300 p-5 sm:p-8 ${
                 course.popular
                   ? "border-[#EAB308] shadow-md ring-2 ring-[#FACC15]/30"
                   : "border-[#E4E4E7] shadow-xs hover:border-[#D4D4D8] hover:shadow-md"
@@ -48,7 +48,7 @@ export function CoursesSection({ onSelectCourse }: CoursesSectionProps) {
             >
               <div>
                 {/* Header Badge & Category */}
-                <div className="flex items-center justify-between gap-3 mb-4">
+                <div className="flex flex-wrap items-center justify-between gap-2 mb-4">
                   <span className="text-xs font-bold uppercase tracking-wider text-[#CA8A04] bg-[#FEF9C3] px-3 py-1 rounded-lg">
                     {course.category === "car"
                       ? "4-Wheeler Car"
@@ -72,7 +72,7 @@ export function CoursesSection({ onSelectCourse }: CoursesSectionProps) {
                 </div>
 
                 {/* Course Title & Short Description */}
-                <h3 className="text-xl sm:text-2xl font-extrabold text-[#18181B] tracking-tight mb-3">
+                <h3 className="text-xl sm:text-2xl font-extrabold text-[#18181B] tracking-tight mb-2.5">
                   {course.title}
                 </h3>
                 <p className="text-sm text-[#52525B] leading-relaxed mb-6">
@@ -80,7 +80,7 @@ export function CoursesSection({ onSelectCourse }: CoursesSectionProps) {
                 </p>
 
                 {/* Course Key Parameters */}
-                <div className="grid grid-cols-2 gap-3 p-4 rounded-2xl bg-[#FAFAF7] border border-[#E4E4E7] mb-6 text-xs text-[#3F3F46]">
+                <div className="grid grid-cols-2 gap-3 p-3.5 sm:p-4 rounded-2xl bg-[#FAFAF7] border border-[#E4E4E7] mb-6 text-xs text-[#3F3F46]">
                   <div className="flex items-center gap-2">
                     <Calendar className="h-4 w-4 text-[#CA8A04] shrink-0" />
                     <div>
@@ -123,10 +123,10 @@ export function CoursesSection({ onSelectCourse }: CoursesSectionProps) {
               </div>
 
               {/* Bottom Actions & Price Status */}
-              <div className="pt-6 border-t border-[#E4E4E7] mt-2">
-                <div className="flex items-center justify-between mb-4">
+              <div className="pt-5 sm:pt-6 border-t border-[#E4E4E7] mt-2">
+                <div className="flex flex-wrap items-center justify-between gap-2 mb-4">
                   <span className="text-xs text-[#71717A] font-medium">Batch Pricing:</span>
-                  <span className="text-sm font-bold text-[#854D0E] bg-[#FEF9C3] px-3 py-1 rounded-md">
+                  <span className="text-xs sm:text-sm font-bold text-[#854D0E] bg-[#FEF9C3] px-3 py-1 rounded-md">
                     {course.priceConfirmed && course.price
                       ? `₹${course.price.toLocaleString("en-IN")}`
                       : course.priceDisplay || "Enquire for Fee Details"}

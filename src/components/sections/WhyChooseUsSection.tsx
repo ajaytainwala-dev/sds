@@ -65,8 +65,8 @@ export function WhyChooseUsSection() {
               </div>
             </div>
 
-            {/* Floating accent card */}
-            <div className="absolute -bottom-6 -right-4 sm:-bottom-8 sm:-right-6 bg-[#FEF9C3] p-4 rounded-2xl shadow-lg border border-[#FEF08A] max-w-56 text-[#713F12]">
+            {/* Floating accent card - safe on mobile */}
+            <div className="mt-3 sm:mt-0 sm:absolute sm:-bottom-8 sm:-right-6 bg-[#FEF9C3] p-3.5 sm:p-4 rounded-2xl shadow-md border border-[#FEF08A] max-w-full sm:max-w-56 text-[#713F12]">
               <div className="flex items-center gap-2 font-bold text-xs">
                 <HeartHandshake className="h-4 w-4 text-[#854D0E]" />
                 <span>Beginner Friendly</span>

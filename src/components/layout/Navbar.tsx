@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { SITE_CONFIG } from "@/lib/site-config";
 import { getGeneralWhatsAppUrl } from "@/lib/whatsapp";
-import { Menu, X, Phone, MessageSquare, Car, MapPin } from "lucide-react";
+import { Menu, X, Phone, MessageSquare, Car, MapPin, ChevronRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const NAV_LINKS = [
@@ -24,7 +24,7 @@ export function Navbar() {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
+      setIsScrolled(window.scrollY > 15);
     };
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
@@ -34,11 +34,14 @@ export function Navbar() {
   useEffect(() => {
     if (mobileMenuOpen) {
       document.body.style.overflow = "hidden";
+      document.body.style.touchAction = "none";
     } else {
       document.body.style.overflow = "";
+      document.body.style.touchAction = "";
     }
     return () => {
       document.body.style.overflow = "";
+      document.body.style.touchAction = "";
     };
   }, [mobileMenuOpen]);
 
@@ -58,26 +61,26 @@ export function Navbar() {
       className={cn(
         "sticky top-0 z-40 w-full transition-all duration-200 border-b",
         isScrolled
-          ? "bg-white/95 backdrop-blur-md shadow-sm border-[#E4E4E7]"
-          : "bg-[#FAFAF7]/90 backdrop-blur-sm border-transparent"
+          ? "bg-white/95 backdrop-blur-md shadow-xs border-[#E4E4E7]"
+          : "bg-[#FAFAF7]/95 backdrop-blur-xs border-transparent"
       )}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex h-18 sm:h-20 items-center justify-between">
+      <div className="max-w-7xl mx-auto px-3.5 sm:px-6 lg:px-8">
+        <div className="flex h-16 sm:h-20 items-center justify-between gap-2">
           {/* Brand Logo / Wordmark */}
           <Link
             href="#hero"
-            className="flex items-center gap-3 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#EAB308] rounded-lg p-1"
+            className="flex items-center gap-2 sm:gap-3 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#EAB308] rounded-xl p-1 min-w-0"
           >
-            <div className="h-10 w-10 sm:h-11 sm:w-11 rounded-xl bg-[#FACC15] flex items-center justify-center text-[#18181B] shadow-sm group-hover:scale-105 transition-transform">
-              <Car className="h-6 w-6 stroke-[2.2]" />
+            <div className="h-9 w-9 sm:h-11 sm:w-11 rounded-xl bg-[#FACC15] flex items-center justify-center text-[#18181B] shadow-xs group-hover:scale-105 transition-transform shrink-0">
+              <Car className="h-5 w-5 sm:h-6 sm:w-6 stroke-[2.2]" />
             </div>
-            <div className="flex flex-col">
-              <span className="font-extrabold text-base sm:text-lg text-[#18181B] tracking-tight leading-none group-hover:text-[#854D0E] transition-colors">
+            <div className="flex flex-col min-w-0">
+              <span className="font-extrabold text-sm sm:text-lg text-[#18181B] tracking-tight leading-tight truncate group-hover:text-[#854D0E] transition-colors">
                 {SITE_CONFIG.name}
               </span>
-              <span className="text-[11px] sm:text-xs font-medium text-[#71717A] flex items-center gap-1 mt-0.5">
-                <MapPin className="h-3 w-3 text-[#CA8A04] shrink-0" />
+              <span className="text-[10px] sm:text-xs font-medium text-[#71717A] flex items-center gap-1 leading-none mt-0.5">
+                <MapPin className="h-2.5 w-2.5 text-[#CA8A04] shrink-0" />
                 Austin Town, Bengaluru
               </span>
             </div>
@@ -121,26 +124,26 @@ export function Navbar() {
             </a>
           </div>
 
-          {/* Mobile Hamburger Button */}
-          <div className="flex sm:hidden items-center gap-2">
+          {/* Mobile Actions: WhatsApp CTA + Hamburger */}
+          <div className="flex lg:hidden items-center gap-1.5 sm:gap-2">
             <a
               href={getGeneralWhatsAppUrl()}
               target="_blank"
               rel="noopener noreferrer"
               aria-label="WhatsApp enquiry"
-              className="p-2.5 rounded-xl bg-[#FACC15] text-[#18181B] hover:bg-[#EAB308] transition-colors"
+              className="h-10 w-10 flex items-center justify-center rounded-xl bg-[#25D366] text-white hover:bg-[#20bd5a] active:scale-95 transition-all shadow-2xs"
             >
               <MessageSquare className="h-4 w-4 fill-current" />
             </a>
 
             <button
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              onClick={() => setMobileMenuOpen(true)}
               type="button"
               aria-expanded={mobileMenuOpen}
-              aria-label="Toggle navigation menu"
-              className="p-2.5 rounded-xl text-[#18181B] hover:bg-black/[0.05] border border-[#E4E4E7] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#EAB308]"
+              aria-label="Open navigation menu"
+              className="h-10 w-10 flex items-center justify-center rounded-xl text-[#18181B] bg-white border border-[#E4E4E7] hover:bg-[#F4F4F5] active:scale-95 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#EAB308]"
             >
-              {mobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+              <Menu className="h-5 w-5" />
             </button>
           </div>
         </div>
@@ -151,47 +154,53 @@ export function Navbar() {
         <div
           role="dialog"
           aria-modal="true"
-          className="fixed inset-0 top-18 z-50 bg-[#18181B]/40 backdrop-blur-xs lg:hidden animate-fade-in"
+          className="fixed inset-0 z-50 bg-[#18181B]/60 backdrop-blur-xs lg:hidden flex justify-end"
           onClick={() => setMobileMenuOpen(false)}
         >
           <div
-            className="absolute top-0 right-0 w-full max-w-xs bg-white h-full shadow-2xl p-6 flex flex-col justify-between overflow-y-auto"
+            className="w-[85vw] max-w-xs bg-white h-full shadow-2xl p-5 flex flex-col justify-between overflow-y-auto animate-in slide-in-from-right duration-200"
             onClick={(e) => e.stopPropagation()}
           >
             <div>
-              <div className="flex items-center justify-between pb-4 border-b border-[#E4E4E7]">
-                <span className="font-bold text-[#18181B] text-sm">Navigation Menu</span>
+              <div className="flex items-center justify-between pb-3.5 border-b border-[#E4E4E7]">
+                <div className="flex items-center gap-2">
+                  <div className="h-7 w-7 rounded-lg bg-[#FACC15] flex items-center justify-center text-[#18181B] font-bold">
+                    <Car className="h-4 w-4 stroke-[2.2]" />
+                  </div>
+                  <span className="font-extrabold text-sm text-[#18181B]">Navigation</span>
+                </div>
                 <button
                   onClick={() => setMobileMenuOpen(false)}
                   type="button"
                   aria-label="Close menu"
-                  className="p-1 rounded-md text-[#71717A] hover:text-[#18181B]"
+                  className="h-9 w-9 flex items-center justify-center rounded-lg text-[#71717A] hover:bg-[#F4F4F5] hover:text-[#18181B]"
                 >
                   <X className="h-5 w-5" />
                 </button>
               </div>
 
-              <nav className="mt-4 flex flex-col space-y-1">
+              <nav className="mt-3 flex flex-col space-y-1">
                 {NAV_LINKS.map((link) => (
                   <a
                     key={link.href}
                     href={link.href}
                     onClick={() => setMobileMenuOpen(false)}
-                    className="px-3 py-2.5 rounded-lg text-base font-medium text-[#3F3F46] hover:text-[#18181B] hover:bg-[#FEF9C3] transition-colors"
+                    className="flex items-center justify-between px-3 py-3 rounded-xl text-sm font-semibold text-[#3F3F46] hover:text-[#18181B] hover:bg-[#FEF9C3] active:bg-[#FEF08A] transition-colors"
                   >
-                    {link.label}
+                    <span>{link.label}</span>
+                    <ChevronRight className="h-4 w-4 text-[#A1A1AA]" />
                   </a>
                 ))}
               </nav>
             </div>
 
-            <div className="pt-6 border-t border-[#E4E4E7] space-y-3">
+            <div className="pt-5 border-t border-[#E4E4E7] space-y-2.5">
               <a
                 href={getGeneralWhatsAppUrl()}
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => setMobileMenuOpen(false)}
-                className="w-full flex items-center justify-center gap-2 py-3 px-4 rounded-xl font-bold text-[#18181B] bg-[#FACC15] hover:bg-[#EAB308] transition-colors"
+                className="w-full flex items-center justify-center gap-2 py-3 px-4 rounded-xl font-bold text-sm text-white bg-[#25D366] hover:bg-[#20bd5a] transition-all shadow-xs"
               >
                 <MessageSquare className="h-4 w-4 fill-current" />
                 Chat on WhatsApp
@@ -199,14 +208,14 @@ export function Navbar() {
 
               <a
                 href={`tel:${SITE_CONFIG.contact.phoneClean}`}
-                className="w-full flex items-center justify-center gap-2 py-3 px-4 rounded-xl font-semibold text-[#18181B] bg-[#F4F4F5] hover:bg-[#E4E4E7] transition-colors"
+                className="w-full flex items-center justify-center gap-2 py-3 px-4 rounded-xl font-bold text-sm text-[#18181B] bg-[#FAFAF7] border border-[#E4E4E7] hover:bg-[#F4F4F5] transition-all"
               >
                 <Phone className="h-4 w-4 text-[#CA8A04]" />
                 Call {SITE_CONFIG.contact.phone}
               </a>
 
-              <p className="text-center text-xs text-[#71717A] pt-2">
-                Austin Town, Bengaluru — 560047
+              <p className="text-center text-[11px] text-[#71717A] pt-1">
+                Austin Town, Neelasandra, Bengaluru 560047
               </p>
             </div>
           </div>
