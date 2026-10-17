@@ -6,16 +6,36 @@ console.log("==================================================");
 console.log("  Building Static Export for GitHub Pages Demo... ");
 console.log("==================================================");
 
-// Set environment variables for static export
+// Detect repository name from git remote or default to /sds
+let basePath = process.env.NEXT_PUBLIC_BASE_PATH;
+if (basePath === undefined) {
+  if (process.env.GITHUB_REPOSITORY) {
+    const repoName = process.env.GITHUB_REPOSITORY.split("/")[1];
+    basePath = repoName && !repoName.endsWith(".github.io") ? `/${repoName}` : "";
+  } else {
+    try {
+      const remoteUrl = execSync("git config --get remote.origin.url", { encoding: "utf8" }).trim();
+      const match = remoteUrl.match(/\/([^/]+?)(?:\.git)?$/);
+      basePath = match && match[1] && !match[1].endsWith(".github.io") ? `/${match[1]}` : "/sds";
+    } catch {
+      basePath = "/sds";
+    }
+  }
+}
+
 process.env.STATIC_EXPORT = "true";
+process.env.NEXT_PUBLIC_BASE_PATH = basePath;
+
+console.log(`✓ Configured Base Path: "${basePath || "/"}"`);
 
 try {
-  // Execute next build
+  // Execute next build with static export settings
   execSync("npx next build", {
     stdio: "inherit",
     env: {
       ...process.env,
       STATIC_EXPORT: "true",
+      NEXT_PUBLIC_BASE_PATH: basePath,
     },
   });
 
@@ -32,15 +52,15 @@ try {
   // 2. Ensure 404.html exists for client-side routing
   const indexHtmlPath = path.join(outDir, "index.html");
   const fallback404Path = path.join(outDir, "404.html");
-  if (!fs.existsSync(fallback404Path) && fs.existsSync(indexHtmlPath)) {
+  if (fs.existsSync(indexHtmlPath)) {
     fs.copyFileSync(indexHtmlPath, fallback404Path);
-    console.log("✓ Created out/404.html SPA fallback");
+    console.log("✓ Synchronised out/404.html SPA fallback");
   }
 
   console.log("\n==================================================");
   console.log("✓ GitHub Pages Static Export Complete!");
+  console.log(`  Assets mapped to prefix: ${basePath || "/"}`);
   console.log("  Output Directory: ./out");
-  console.log("  To preview locally: npx serve out");
   console.log("==================================================\n");
 } catch (error) {
   console.error("\n❌ Static export failed:", error.message);
