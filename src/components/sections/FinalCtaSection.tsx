@@ -25,7 +25,7 @@ export function FinalCtaSection() {
         </h2>
 
         <p className="mt-4 text-base sm:text-lg text-[#713F12] max-w-2xl mx-auto font-medium leading-relaxed">
-          Take the first step towards independent driving in Bengaluru. Contact Sridhar Driving School today for batch availability, personalized timings, and course consultation.
+          Take the first step towards independent driving in Bengaluru. Contact Sridhar Motor Driving School today for batch availability, personalized timings, and course consultation.
         </p>
 
         <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">

@@ -28,7 +28,7 @@ export function FloatingWhatsApp() {
         href={getGeneralWhatsAppUrl()}
         target="_blank"
         rel="noopener noreferrer"
-        aria-label="Chat with Sridhar Driving School on WhatsApp"
+        aria-label="Chat with Sridhar Motor Driving School on WhatsApp"
         className="group flex items-center justify-center h-13 w-13 sm:h-14 sm:w-14 rounded-full bg-[#25D366] text-white shadow-lg hover:shadow-xl hover:bg-[#20bd5a] hover:scale-105 active:scale-95 transition-all focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#25D366]/40"
       >
         <MessageSquare className="h-6 w-6 sm:h-7 sm:w-7 fill-current stroke-none" />

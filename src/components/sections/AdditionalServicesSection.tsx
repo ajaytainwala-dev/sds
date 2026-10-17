@@ -61,7 +61,7 @@ export function AdditionalServicesSection() {
         <div className="mt-10 p-4 rounded-xl bg-white border border-[#E4E4E7] flex items-start gap-3 text-xs text-[#71717A]">
           <ShieldAlert className="h-4 w-4 text-[#CA8A04] shrink-0 mt-0.5" />
           <div>
-            <strong className="text-[#18181B]">Official Disclaimer:</strong> Sridhar Driving School provides training, test orientation, and procedural consultation. Driving tests, licence approvals, and physical smart-card licence issuance are conducted solely by the Karnataka Motor Vehicles Department (RTO) in accordance with the Motor Vehicles Act.
+            <strong className="text-[#18181B]">Official Disclaimer:</strong> Sridhar Motor Driving School provides training, test orientation, and procedural consultation. Driving tests, licence approvals, and physical smart-card licence issuance are conducted solely by the Karnataka Motor Vehicles Department (RTO) in accordance with the Motor Vehicles Act.
           </div>
         </div>
       </div>

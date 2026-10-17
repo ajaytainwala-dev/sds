@@ -109,7 +109,7 @@ export function GallerySection() {
 
         {/* Note regarding real photos */}
         <p className="mt-8 text-center text-xs text-[#71717A]">
-          Click any image to enlarge. Real vehicle photos provided by Sridhar Driving School can be updated anytime in the site configuration.
+          Click any image to enlarge. Real vehicle photos provided by Sridhar Motor Driving School can be updated anytime in the site configuration.
         </p>
       </div>
 

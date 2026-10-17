@@ -221,7 +221,7 @@ export function SplashScreen() {
             {/* Title & Badge */}
             <div className="text-center mt-4 sm:mt-5">
               <h2 className="text-xl sm:text-2xl font-black text-[#18181B] tracking-tight">
-                Sridhar Driving School
+                Sridhar Motor Driving School
               </h2>
               <div className="text-xs font-semibold text-[#854D0E] flex items-center justify-center gap-1.5 mt-1">
                 <span className="h-2 w-2 rounded-full bg-[#15803D] animate-ping" />

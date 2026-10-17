@@ -37,7 +37,8 @@ export const metadata: Metadata = {
   },
   description: SITE_CONFIG.description,
   keywords: [
-    "Sridhar Driving School",
+    "Sridhar Motor Driving School",
+    "Motor Driving School Austin Town",
     "Driving School Austin Town",
     "Driving School Bengaluru",
     "Car Driving Classes Austin Town",

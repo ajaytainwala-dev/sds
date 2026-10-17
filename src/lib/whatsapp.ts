@@ -31,7 +31,7 @@ export function getEnquiryFollowupWhatsAppUrl(
   preferredTime?: string
 ): string {
   const schoolPhone = cleanPhoneForWhatsApp(SITE_CONFIG.contact.whatsapp);
-  let message = `Hello Sridhar Driving School,\n\nI have submitted an admission enquiry on your website with the following details:\n- Name: ${name}\n- Phone: ${phone}\n- Course: ${course}`;
+  let message = `Hello Sridhar Motor Driving School,\n\nI have submitted an admission enquiry on your website with the following details:\n- Name: ${name}\n- Phone: ${phone}\n- Course: ${course}`;
   if (preferredTime) {
     message += `\n- Preferred Timing: ${preferredTime}`;
   }

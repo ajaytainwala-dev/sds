@@ -80,7 +80,7 @@ export function WhyChooseUsSection() {
           {/* Right Column: Key Pillars */}
           <div className="lg:col-span-7 order-1 lg:order-2">
             <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#FEF9C3] text-[#854D0E] text-xs font-bold uppercase tracking-wider mb-3">
-              Why Choose Sridhar Driving School
+              Why Choose Sridhar Motor Driving School
             </div>
             <h2 className="text-3xl sm:text-4xl font-extrabold text-[#18181B] tracking-tight leading-tight">
               We Don&apos;t Just Teach You How to Steer. We Teach You How to Drive Safely.

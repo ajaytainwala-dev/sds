@@ -41,9 +41,9 @@ export interface FaqItem {
 }
 
 export const SITE_CONFIG = {
-  name: "Sridhar Driving School",
-  legalName: "Sridhar Driving School",
-  shortName: "SDS",
+  name: "Sridhar Motor Driving School",
+  legalName: "Sridhar Motor Driving School",
+  shortName: "SMDS",
   tagline: "Learn to Drive. Build Confidence for Every Journey.",
   description:
     "Professional driving lessons, two-wheeler training, and RTO licence assistance in Austin Town, Bengaluru. Patient 1-on-1 instruction focused on defensive driving and real-world urban navigation.",
@@ -80,11 +80,11 @@ export const SITE_CONFIG = {
   },
   whatsappPrefill: {
     general:
-      "Hello Sridhar Driving School, I would like to enquire about driving training and courses at your Austin Town branch.",
+      "Hello Sridhar Motor Driving School, I would like to enquire about driving training and courses at your Austin Town branch.",
     course: (courseName: string) =>
-      `Hello Sridhar Driving School, I am interested in enquiring about the "${courseName}" at your Austin Town branch. Please share the batch timings and details.`,
+      `Hello Sridhar Motor Driving School, I am interested in enquiring about the "${courseName}" at your Austin Town branch. Please share the batch timings and details.`,
     enquirySummary: (name: string, course: string, phone: string) =>
-      `Hello Sridhar Driving School, my name is ${name} (Phone: ${phone}). I submitted an enquiry for "${course}" through your website and would like to confirm batch availability.`,
+      `Hello Sridhar Motor Driving School, my name is ${name} (Phone: ${phone}). I submitted an enquiry for "${course}" through your website and would like to confirm batch availability.`,
   },
   announcement: {
     enabled: false,
@@ -321,7 +321,7 @@ export const SITE_CONFIG = {
   ] as GalleryItem[],
   faqs: [
     {
-      question: "What driving courses do you offer at Sridhar Driving School?",
+      question: "What driving courses do you offer at Sridhar Motor Driving School?",
       answer:
         "We offer comprehensive 4-wheeler (car) training for complete beginners, refresher and confidence-building courses for existing licence holders, two-wheeler training (geared motorcycles and gearless scooters), and RTO driving test preparation and guidance.",
       category: "Courses",

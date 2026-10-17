@@ -118,7 +118,7 @@ export function EnquiryForm({ initialCourse }: EnquiryFormProps) {
           </h3>
 
           <p className="mt-3 text-sm text-[#52525B] max-w-md mx-auto leading-relaxed">
-            Thank you for reaching out to Sridhar Driving School. We have recorded your admission enquiry and our team will get back to you shortly.
+            Thank you for reaching out to Sridhar Motor Driving School. We have recorded your admission enquiry and our team will get back to you shortly.
           </p>
 
           {/* Optional immediate WhatsApp follow-up CTA */}
@@ -372,7 +372,7 @@ export function EnquiryForm({ initialCourse }: EnquiryFormProps) {
           <div className="flex items-start gap-2 text-[11px] text-[#71717A] leading-relaxed">
             <ShieldCheck className="h-4 w-4 text-[#CA8A04] shrink-0 mt-0.5" />
             <span>
-              By submitting this form, you consent to being contacted by Sridhar Driving School regarding your enquiry. We never share your phone number with third-party advertisers.
+              By submitting this form, you consent to being contacted by Sridhar Motor Driving School regarding your enquiry. We never share your phone number with third-party advertisers.
             </span>
           </div>
 

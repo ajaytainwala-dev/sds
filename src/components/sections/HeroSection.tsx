@@ -61,7 +61,7 @@ export function HeroSection() {
             >
               Explore driving lessons and patient 1-on-1 instruction at{" "}
               <strong className="font-semibold text-[#18181B]">
-                Sridhar Driving School
+                Sridhar Motor Driving School
               </strong>
               , Austin Town, Bengaluru. Master clutch control, slope starts, reverse parking, and bumper-to-bumper city traffic safely.
             </motion.p>

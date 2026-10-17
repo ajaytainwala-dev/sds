@@ -97,7 +97,7 @@ export async function sendEnquiryEmail(data: EnquiryFormData): Promise<SendEnqui
                   <strong>Quick Action:</strong> Click below to reply directly via WhatsApp or phone call.
                 </p>
                 <div style="margin-top: 12px;">
-                  <a href="https://wa.me/91${safePhone}?text=${encodeURIComponent(`Hello ${data.fullName}, thank you for contacting Sridhar Driving School, Austin Town regarding ${data.service}.`)}" 
+                  <a href="https://wa.me/91${safePhone}?text=${encodeURIComponent(`Hello ${data.fullName}, thank you for contacting Sridhar Motor Driving School, Austin Town regarding ${data.service}.`)}" 
                      style="display: inline-block; background-color: #15803d; color: #ffffff; padding: 8px 16px; border-radius: 6px; text-decoration: none; font-size: 13px; font-weight: 600; margin-right: 8px;">
                     Open WhatsApp Chat
                   </a>
@@ -109,7 +109,7 @@ export async function sendEnquiryEmail(data: EnquiryFormData): Promise<SendEnqui
               </div>
 
               <p style="margin-top: 24px; font-size: 12px; color: #a1a1aa; border-top: 1px solid #f4f4f5; padding-top: 16px;">
-                Received on: ${timestamp} IST | Origin: Sridhar Driving School Web Form (Austin Town, Bengaluru)
+                Received on: ${timestamp} IST | Origin: Sridhar Motor Driving School Web Form (Austin Town, Bengaluru)
               </p>
             </td>
           </tr>

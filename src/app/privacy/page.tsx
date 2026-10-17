@@ -28,7 +28,7 @@ export default function PrivacyPage() {
             Privacy Policy
           </h1>
           <p className="mt-2 text-sm text-[#71717A]">
-            Last updated: October 2026 • Sridhar Driving School, Austin Town, Bengaluru
+            Last updated: October 2026 • Sridhar Motor Driving School, Austin Town, Bengaluru
           </p>
         </div>
 

@@ -273,7 +273,7 @@ export function PricingSection() {
           <div className="flex items-start gap-3">
             <ShieldCheck className="h-5 w-5 text-[#854D0E] shrink-0 mt-0.5" />
             <div className="text-xs sm:text-sm text-[#713F12]">
-              <strong>Transparent Fee Policy:</strong> Sridhar Driving School provides upfront batch quotes without hidden fuel surcharges. Contact us directly to confirm current batch availability and fees for your chosen vehicle model.
+              <strong>Transparent Fee Policy:</strong> Sridhar Motor Driving School provides upfront batch quotes without hidden fuel surcharges. Contact us directly to confirm current batch availability and fees for your chosen vehicle model.
             </div>
           </div>
           <a

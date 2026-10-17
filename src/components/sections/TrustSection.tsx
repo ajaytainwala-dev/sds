@@ -16,13 +16,13 @@ export function TrustSection() {
         {/* Section Header */}
         <div className="max-w-3xl">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-[#FEF9C3] text-[#854D0E] text-xs font-bold uppercase tracking-wider mb-3">
-            About Sridhar Driving School
+            About Sridhar Motor Driving School
           </div>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-[#18181B] tracking-tight">
             Your Journey Starts Here: Safe, Calm, and Patient Driving Instruction.
           </h2>
           <p className="mt-4 text-base sm:text-lg text-[#52525B] leading-relaxed">
-            Learning to drive in Bengaluru can feel intimidating with dense traffic, narrow roads, and steep flyovers. At Sridhar Driving School in Austin Town, we focus on helping learners build instinctive vehicle control and road awareness in a calm, supportive environment.
+            Learning to drive in Bengaluru can feel intimidating with dense traffic, narrow roads, and steep flyovers. At Sridhar Motor Driving School in Austin Town, we focus on helping learners build instinctive vehicle control and road awareness in a calm, supportive environment.
           </p>
         </div>
 
