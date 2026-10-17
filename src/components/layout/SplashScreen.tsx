@@ -9,14 +9,6 @@ export function SplashScreen() {
   const [statusMessage, setStatusMessage] = useState("Ignition ON...");
 
   useEffect(() => {
-    const hasSeenSplash = sessionStorage.getItem("sds_splash_viewed");
-    if (hasSeenSplash) {
-      const timer = setTimeout(() => {
-        setLoading(false);
-      }, 0);
-      return () => clearTimeout(timer);
-    }
-
     const messages = [
       "Ignition ON...",
       "Calibrating dual controls...",
@@ -24,16 +16,17 @@ export function SplashScreen() {
       "Ready to navigate Bengaluru!",
     ];
 
+    // Exactly 3.0 seconds runtime: 100 steps * 30ms = 3000ms
     let currentStep = 0;
     const interval = setInterval(() => {
       setProgress((prev) => {
-        const next = prev + 5;
+        const next = prev + 1;
         if (next >= 100) {
           clearInterval(interval);
           setTimeout(() => {
             sessionStorage.setItem("sds_splash_viewed", "true");
             setLoading(false);
-          }, 300);
+          }, 150);
           return 100;
         }
 
@@ -48,7 +41,7 @@ export function SplashScreen() {
 
         return next;
       });
-    }, 40);
+    }, 30);
 
     return () => clearInterval(interval);
   }, []);
@@ -65,8 +58,8 @@ export function SplashScreen() {
           key="splash-screen"
           initial={{ opacity: 1 }}
           exit={{ opacity: 0, scale: 0.98 }}
-          transition={{ duration: 0.5, ease: "easeInOut" }}
-          className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-[#FAFAF7] text-[#18181B] select-none p-4 min-h-[100dvh] overflow-hidden"
+          transition={{ duration: 0.4, ease: "easeInOut" }}
+          className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-[#FAFAF7] text-[#18181B] select-none p-3.5 sm:p-4 min-h-[100dvh] overflow-hidden"
         >
           {/* Subtle background warm glow */}
           <div
@@ -74,12 +67,12 @@ export function SplashScreen() {
             className="absolute w-72 h-72 sm:w-96 sm:h-96 rounded-full bg-gradient-to-tr from-[#FEF9C3] via-[#FACC15]/25 to-transparent blur-2xl pointer-events-none -z-10"
           />
 
-          <div className="w-full max-w-sm sm:max-w-md flex flex-col items-center">
-            {/* Vector Illustration Stage - Framed & Safe on Mobile */}
-            <div className="w-full max-w-[340px] sm:max-w-[400px] rounded-2xl bg-white border border-[#E4E4E7] shadow-lg p-3 sm:p-5 overflow-hidden">
+          <div className="w-full max-w-[320px] xs:max-w-[350px] sm:max-w-md flex flex-col items-center">
+            {/* Vector Illustration Stage - Framed & Ultra-Responsive on Mobile */}
+            <div className="w-full rounded-2xl bg-white border border-[#E4E4E7] shadow-lg p-2.5 sm:p-5 overflow-hidden">
               <svg
                 viewBox="0 0 360 160"
-                className="w-full h-auto block"
+                className="w-full h-auto max-h-[140px] sm:max-h-[180px] block"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
               >

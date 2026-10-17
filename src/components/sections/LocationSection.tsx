@@ -112,13 +112,13 @@ export function LocationSection() {
           </div>
 
           {/* Right Map Embed / Interactive Map Container */}
-          <div className="lg:col-span-7 rounded-3xl overflow-hidden border border-[#E4E4E7] shadow-sm bg-[#F4F4F5] relative min-h-[380px]">
+          <div className="lg:col-span-7 rounded-3xl overflow-hidden border border-[#E4E4E7] shadow-sm bg-[#F4F4F5] relative h-[300px] sm:h-[380px] lg:h-full min-h-[300px] sm:min-h-[380px]">
             <iframe
               title="Sridhar Driving School Austin Town Location Map"
               src={SITE_CONFIG.location.googleMapsEmbedUrl}
               width="100%"
               height="100%"
-              style={{ border: 0, minHeight: "380px" }}
+              style={{ border: 0 }}
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
               className="w-full h-full"
