@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { createPortal } from "react-dom";
 import Link from "next/link";
 import { SITE_CONFIG } from "@/lib/site-config";
 import { getGeneralWhatsAppUrl } from "@/lib/whatsapp";
@@ -21,6 +22,11 @@ const NAV_LINKS = [
 export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -149,78 +155,82 @@ export function Navbar() {
         </div>
       </div>
 
-      {/* Mobile Drawer Overlay */}
-      {mobileMenuOpen && (
-        <div
-          role="dialog"
-          aria-modal="true"
-          className="fixed inset-0 z-50 bg-[#18181B]/60 backdrop-blur-xs lg:hidden flex justify-end"
-          onClick={() => setMobileMenuOpen(false)}
-        >
+      {/* Mobile Drawer Portal - rendered directly on body with top z-index */}
+      {mounted &&
+        mobileMenuOpen &&
+        createPortal(
           <div
-            className="w-[85vw] max-w-xs bg-white h-full shadow-2xl p-5 flex flex-col justify-between overflow-y-auto animate-in slide-in-from-right duration-200"
-            onClick={(e) => e.stopPropagation()}
+            role="dialog"
+            aria-modal="true"
+            aria-label="Navigation menu"
+            className="fixed inset-0 z-[9999] bg-[#18181B]/70 backdrop-blur-xs flex justify-end"
+            onClick={() => setMobileMenuOpen(false)}
           >
-            <div>
-              <div className="flex items-center justify-between pb-3.5 border-b border-[#E4E4E7]">
-                <div className="flex items-center gap-2">
-                  <div className="h-7 w-7 rounded-lg bg-[#FACC15] flex items-center justify-center text-[#18181B] font-bold">
-                    <Car className="h-4 w-4 stroke-[2.2]" />
+            <div
+              className="w-[85vw] max-w-xs bg-white h-full shadow-2xl p-5 flex flex-col justify-between overflow-y-auto"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <div>
+                <div className="flex items-center justify-between pb-3.5 border-b border-[#E4E4E7]">
+                  <div className="flex items-center gap-2">
+                    <div className="h-7 w-7 rounded-lg bg-[#FACC15] flex items-center justify-center text-[#18181B] font-bold">
+                      <Car className="h-4 w-4 stroke-[2.2]" />
+                    </div>
+                    <span className="font-extrabold text-sm text-[#18181B]">Navigation</span>
                   </div>
-                  <span className="font-extrabold text-sm text-[#18181B]">Navigation</span>
+                  <button
+                    onClick={() => setMobileMenuOpen(false)}
+                    type="button"
+                    aria-label="Close menu"
+                    className="h-9 w-9 flex items-center justify-center rounded-lg text-[#71717A] hover:bg-[#F4F4F5] hover:text-[#18181B] active:scale-95"
+                  >
+                    <X className="h-5 w-5" />
+                  </button>
                 </div>
-                <button
-                  onClick={() => setMobileMenuOpen(false)}
-                  type="button"
-                  aria-label="Close menu"
-                  className="h-9 w-9 flex items-center justify-center rounded-lg text-[#71717A] hover:bg-[#F4F4F5] hover:text-[#18181B]"
-                >
-                  <X className="h-5 w-5" />
-                </button>
+
+                <nav className="mt-3 flex flex-col space-y-1">
+                  {NAV_LINKS.map((link) => (
+                    <a
+                      key={link.href}
+                      href={link.href}
+                      onClick={() => setMobileMenuOpen(false)}
+                      className="flex items-center justify-between px-3 py-3 rounded-xl text-sm font-semibold text-[#3F3F46] hover:text-[#18181B] hover:bg-[#FEF9C3] active:bg-[#FEF08A] transition-colors"
+                    >
+                      <span>{link.label}</span>
+                      <ChevronRight className="h-4 w-4 text-[#A1A1AA]" />
+                    </a>
+                  ))}
+                </nav>
               </div>
 
-              <nav className="mt-3 flex flex-col space-y-1">
-                {NAV_LINKS.map((link) => (
-                  <a
-                    key={link.href}
-                    href={link.href}
-                    onClick={() => setMobileMenuOpen(false)}
-                    className="flex items-center justify-between px-3 py-3 rounded-xl text-sm font-semibold text-[#3F3F46] hover:text-[#18181B] hover:bg-[#FEF9C3] active:bg-[#FEF08A] transition-colors"
-                  >
-                    <span>{link.label}</span>
-                    <ChevronRight className="h-4 w-4 text-[#A1A1AA]" />
-                  </a>
-                ))}
-              </nav>
+              <div className="pt-5 border-t border-[#E4E4E7] space-y-2.5">
+                <a
+                  href={getGeneralWhatsAppUrl()}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="w-full flex items-center justify-center gap-2 py-3 px-4 rounded-xl font-bold text-sm text-white bg-[#25D366] hover:bg-[#20bd5a] transition-all shadow-xs"
+                >
+                  <MessageSquare className="h-4 w-4 fill-current" />
+                  Chat on WhatsApp
+                </a>
+
+                <a
+                  href={`tel:${SITE_CONFIG.contact.phoneClean}`}
+                  className="w-full flex items-center justify-center gap-2 py-3 px-4 rounded-xl font-bold text-sm text-[#18181B] bg-[#FAFAF7] border border-[#E4E4E7] hover:bg-[#F4F4F5] transition-all"
+                >
+                  <Phone className="h-4 w-4 text-[#CA8A04]" />
+                  Call {SITE_CONFIG.contact.phone}
+                </a>
+
+                <p className="text-center text-[11px] text-[#71717A] pt-1">
+                  Austin Town, Neelasandra, Bengaluru 560047
+                </p>
+              </div>
             </div>
-
-            <div className="pt-5 border-t border-[#E4E4E7] space-y-2.5">
-              <a
-                href={getGeneralWhatsAppUrl()}
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={() => setMobileMenuOpen(false)}
-                className="w-full flex items-center justify-center gap-2 py-3 px-4 rounded-xl font-bold text-sm text-white bg-[#25D366] hover:bg-[#20bd5a] transition-all shadow-xs"
-              >
-                <MessageSquare className="h-4 w-4 fill-current" />
-                Chat on WhatsApp
-              </a>
-
-              <a
-                href={`tel:${SITE_CONFIG.contact.phoneClean}`}
-                className="w-full flex items-center justify-center gap-2 py-3 px-4 rounded-xl font-bold text-sm text-[#18181B] bg-[#FAFAF7] border border-[#E4E4E7] hover:bg-[#F4F4F5] transition-all"
-              >
-                <Phone className="h-4 w-4 text-[#CA8A04]" />
-                Call {SITE_CONFIG.contact.phone}
-              </a>
-
-              <p className="text-center text-[11px] text-[#71717A] pt-1">
-                Austin Town, Neelasandra, Bengaluru 560047
-              </p>
-            </div>
-          </div>
-        </div>
-      )}
+          </div>,
+          document.body
+        )}
     </header>
   );
 }
