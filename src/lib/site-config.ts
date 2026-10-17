@@ -87,7 +87,7 @@ export const SITE_CONFIG = {
       `Hello Sridhar Driving School, my name is ${name} (Phone: ${phone}). I submitted an enquiry for "${course}" through your website and would like to confirm batch availability.`,
   },
   announcement: {
-    enabled: true,
+    enabled: false,
     message: "New batches starting this week in Austin Town, Bengaluru. Morning & evening slots available.",
     ctaText: "Enquire Now",
     ctaLink: "#enquiry",

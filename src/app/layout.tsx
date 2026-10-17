@@ -103,7 +103,6 @@ export default function RootLayout({
       </head>
       <body className="min-h-screen flex flex-col bg-[#FAFAF7] text-[#18181B] selection:bg-[#FACC15] selection:text-[#18181B]">
         <SplashScreen />
-        <AnnouncementStrip />
         <Navbar />
         <div className="flex-1">{children}</div>
         <Footer />
