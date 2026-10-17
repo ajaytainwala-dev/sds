@@ -7,6 +7,7 @@ import { AnnouncementStrip } from "@/components/layout/AnnouncementStrip";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { FloatingWhatsApp } from "@/components/layout/FloatingWhatsApp";
+import { SplashScreen } from "@/components/layout/SplashScreen";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -99,6 +100,7 @@ export default function RootLayout({
         />
       </head>
       <body className="min-h-screen flex flex-col bg-[#FAFAF7] text-[#18181B] selection:bg-[#FACC15] selection:text-[#18181B]">
+        <SplashScreen />
         <AnnouncementStrip />
         <Navbar />
         <div className="flex-1">{children}</div>

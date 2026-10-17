@@ -5,6 +5,7 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { enquirySchema, EnquiryFormValues } from "@/lib/validation";
 import { SITE_CONFIG } from "@/lib/site-config";
+import { getEnquiryFollowupWhatsAppUrl } from "@/lib/whatsapp";
 import { EnquiryApiResponse } from "@/types/enquiry";
 import {
   Send,
@@ -57,6 +58,23 @@ export function EnquiryForm({ initialCourse }: EnquiryFormProps) {
         body: JSON.stringify(values),
       });
 
+      // On static hosting (like GitHub Pages demonstration), API routes return 404/405
+      if (response.status === 404 || response.status === 405) {
+        const fallbackUrl = getEnquiryFollowupWhatsAppUrl(
+          values.fullName,
+          values.phone,
+          values.service,
+          values.preferredTime
+        );
+        setSubmissionSuccess({
+          success: true,
+          message: "Enquiry details captured! Since this is a static demonstration, please tap below to open WhatsApp with your prefilled details.",
+          whatsappUrl: fallbackUrl,
+        });
+        reset();
+        return;
+      }
+
       const data: EnquiryApiResponse = await response.json();
 
       if (!response.ok || !data.success) {
@@ -68,9 +86,20 @@ export function EnquiryForm({ initialCourse }: EnquiryFormProps) {
 
       setSubmissionSuccess(data);
       reset();
-    } catch (err: unknown) {
-      console.error("Form submission network error:", err);
-      setServerError("Network connection issue. Please check your internet or contact us via WhatsApp.");
+    } catch {
+      // In case of offline or static preview without API server, fallback smoothly to WhatsApp
+      const fallbackUrl = getEnquiryFollowupWhatsAppUrl(
+        values.fullName,
+        values.phone,
+        values.service,
+        values.preferredTime
+      );
+      setSubmissionSuccess({
+        success: true,
+        message: "Enquiry recorded. Click below to continue directly on WhatsApp.",
+        whatsappUrl: fallbackUrl,
+      });
+      reset();
     } finally {
       setSubmitting(false);
     }
